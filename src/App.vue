@@ -1,17 +1,46 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Parent/>
+    <button @click="changeComponent">切换组件</button>
+    <keep-alive>
+      <component v-bind:is="currentComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import VueDemo from './components/VueDemo'
+import Parent from './components/Parent'
+import A from './components/A'
+import B from './components/B'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    VueDemo,
+    Parent,
+    A,
+    B
+  },
+  data () {
+    return {
+      flag: true,
+      currentComponent: A
+    }
+  },
+  methods: {
+    changeComponent () {
+      if(this.flag){
+        this.flag = false;
+        this.currentComponent = B;
+      }else{
+        this.flag = true;
+        this.currentComponent = A;
+      }
+    }
   }
 }
 </script>
