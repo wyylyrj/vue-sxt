@@ -6,6 +6,7 @@
     <keep-alive>
       <component v-bind:is="currentComponent"></component>
     </keep-alive>
+    <anim></anim>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import VueDemo from './components/VueDemo'
 import Parent from './components/Parent'
 import A from './components/A'
 import B from './components/B'
+import Anim from './components/Anim'
 
 export default {
   name: 'App',
@@ -23,7 +25,8 @@ export default {
     VueDemo,
     Parent,
     A,
-    B
+    B,
+    Anim
   },
   data () {
     return {
