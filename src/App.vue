@@ -7,6 +7,7 @@
       <component v-bind:is="currentComponent"></component>
     </keep-alive>
     <anim></anim>
+    <HelloWorld></HelloWorld>
   </div>
 </template>
 

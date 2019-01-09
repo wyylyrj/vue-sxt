@@ -40,6 +40,9 @@
 </template>
 
 <script>
+
+  import qs from 'qs';
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -81,6 +84,33 @@ export default {
     addHelloArr () {
       this.helloArr.push('hello4');
     }
+  },
+  mounted() {
+    this.$axios.get('http://www.wwtliu.com/sxtstu/news/juhenews.php',{
+      params: {
+        type: 'yule',
+        count: 30
+      }
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    this.$axios.post('http://www.wwtliu.com/sxtstu/blueberrypai/login.php',qs.stringify({
+
+        user_id: 'iwen@qq.com',
+        password: 'iwen123',
+        verification_code: 'crfvw'
+
+    }))
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
 </script>
